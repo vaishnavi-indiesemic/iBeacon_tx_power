@@ -1,0 +1,10 @@
+identifier: isc-52810/nrf52810
+name: isc
+vendor: isc
+type: mcu
+arch: arm
+ram: 24
+flash: 192
+toolchain:
+  - zephyr
+supported: []

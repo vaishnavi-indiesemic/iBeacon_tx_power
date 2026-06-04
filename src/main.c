@@ -27,17 +27,15 @@
  */
 static const struct bt_data ad[] = {
 	BT_DATA_BYTES(BT_DATA_FLAGS, BT_LE_AD_NO_BREDR),
-	BT_DATA_BYTES(BT_DATA_MANUFACTURER_DATA,
-		      0x4c, 0x00, /* Apple */
-		      0x02, 0x15, /* iBeacon */
-		      0x18, 0xee, 0x15, 0x16, /* UUID[15..12] */
-		      0x01, 0x6b, /* UUID[11..10] */
-		      0x4b, 0xec, /* UUID[9..8] */
-		      0xad, 0x96, /* UUID[7..6] */
-		      0xbc, 0xb9, 0x6d, 0x16, 0x6e, 0x97, /* UUID[5..0] */
-		      0x00, 0x00, /* Major */
-		      0x00, 0x00, /* Minor */
-		      IBEACON_RSSI) /* Calibrated RSSI @ 1m */
+	  BT_DATA_BYTES(BT_DATA_MANUFACTURER_DATA,
+	0x4e, 0x0d, /* Apple Company ID */
+	0x02, 0x15, /* iBeacon Type & Length */
+	0x4e, 0x49, 0x4b, 0x41, 0x54, 0x54, 0x45, 0x43, /* UUID */
+	0x48, 0x42, 0x45, 0x41, 0x43, 0x4f, 0x4e, 0x53, /* UUID */
+	0x00, 0x03, /* Index 20, 21: Major */
+	0x00, 0x01, /* Index 22, 23: Minor */
+	IBEACON_RSSI /* Calibrated RSSI @ 1m */
+                ),
 };
 
 static void bt_ready(int err)
