@@ -16,6 +16,8 @@
 #define IBEACON_RSSI 0xc8
 #endif
 
+#define DEVICE_NAME CONFIG_BT_DEVICE_NAME
+#define DEVICE_NAME_LEN (sizeof(DEVICE_NAME) - 1)
 /*
  * Set iBeacon demo advertisement data. These values are for
  * demonstration only and must be changed for production environments!
@@ -37,6 +39,9 @@ static const struct bt_data ad[] = {
 	IBEACON_RSSI /* Calibrated RSSI @ 1m */
                 ),
 };
+static const struct bt_data sd[] = {
+    BT_DATA(BT_DATA_NAME_COMPLETE, DEVICE_NAME, DEVICE_NAME_LEN),
+};
 
 static void bt_ready(int err)
 {
@@ -49,7 +54,7 @@ static void bt_ready(int err)
 
 	/* Start advertising */
 	err = bt_le_adv_start(BT_LE_ADV_NCONN, ad, ARRAY_SIZE(ad),
-			      NULL, 0);
+			      sd, ARRAY_SIZE(sd));
 	if (err) {
 		printk("Advertising failed to start (err %d)\n", err);
 		return;
