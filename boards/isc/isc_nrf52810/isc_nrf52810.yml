@@ -1,5 +1,5 @@
-identifier: isc-52810/nrf52810
-name: isc
+identifier: isc_nrf52810/nrf52810
+name: isc_nrf52810
 vendor: isc
 type: mcu
 arch: arm
